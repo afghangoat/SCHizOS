@@ -1,0 +1,5 @@
+***************************************************************************************************************************************
+You will need an elf i386 GCC to compile this, bud.
+I got you a compiled version of the software. So make sure to install the qemu x86 systems package.
+The documentation of the OS will go in this file... in a nice day sometimes in the future.
+***************************************************************************************************************************************
