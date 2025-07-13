@@ -1,0 +1,1 @@
+/usr/bin/watcom/binl64/wcc -fo /mnt/c/Users/Gabci/Desktop/os/build/stage2/c/main.obj /mnt/c/Users/Gabci/Desktop/os/src/bootloader/stage2/main.c
