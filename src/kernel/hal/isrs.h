@@ -1,0 +1,5 @@
+typedef enum EXCEPTIONS{
+	EXCEPTIONS_DIVIDE_ERROR=0,
+	EXCEPTIONS_DEBUG_EXCEPTION=1
+}
+void ISRS_RegisterExceptionHandler();
