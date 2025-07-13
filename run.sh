@@ -1,0 +1,1 @@
+qemu-system-i386 -audiodev pa,id=speaker -machine pcspk-audiodev=speaker -debugcon stdio -fda build/main_floppy.img
