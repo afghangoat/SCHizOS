@@ -1,0 +1,829 @@
+Archive member included to satisfy reference by file (symbol)
+
+/mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+                              /mnt/c/os/build/kernel/c/stdio.obj (__udivdi3)
+/mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+                              /mnt/c/os/build/kernel/c/stdio.obj (__umoddi3)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /mnt/c/os/build/kernel/asm/arch/i686/ata.obj
+LOAD /mnt/c/os/build/kernel/asm/arch/i686/gdt.obj
+LOAD /mnt/c/os/build/kernel/asm/arch/i686/idt.obj
+LOAD /mnt/c/os/build/kernel/asm/arch/i686/io.obj
+LOAD /mnt/c/os/build/kernel/asm/arch/i686/isr.obj
+LOAD /mnt/c/os/build/kernel/asm/arch/i686/rnd.obj
+LOAD /mnt/c/os/build/kernel/asm/arch/i686/x86.obj
+LOAD /mnt/c/os/build/kernel/c/audio.obj
+LOAD /mnt/c/os/build/kernel/c/command.obj
+LOAD /mnt/c/os/build/kernel/c/keyboard.obj
+LOAD /mnt/c/os/build/kernel/c/main.obj
+LOAD /mnt/c/os/build/kernel/c/memory.obj
+LOAD /mnt/c/os/build/kernel/c/stdio.obj
+LOAD /mnt/c/os/build/kernel/c/stdlib.obj
+LOAD /mnt/c/os/build/kernel/c/task_scheduler.obj
+LOAD /mnt/c/os/build/kernel/c/hal/hal.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/io.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+LOAD /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+LOAD /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a
+                0x0000000000100000                phys = 0x100000
+                0x0000000000100000                . = phys
+
+.entry          0x0000000000100000       0x63
+                0x0000000000100000                __entry_start = .
+ *(.entry)
+ .entry         0x0000000000100000       0x63 /mnt/c/os/build/kernel/c/main.obj
+                0x0000000000100000                start
+
+.text           0x0000000000100070     0x55d0
+                0x0000000000100070                __text_start = .
+ *(.text)
+ .text          0x0000000000100070      0x159 /mnt/c/os/build/kernel/asm/arch/i686/ata.obj
+                0x0000000000100070                ata_chs_read
+                0x00000000001000d6                ata_lba_read
+                0x0000000000100142                ata_lba_write
+                0x00000000001001b1                ata_disk_reset
+ *fill*         0x00000000001001c9        0x7 
+ .text          0x00000000001001d0       0x25 /mnt/c/os/build/kernel/asm/arch/i686/gdt.obj
+                0x00000000001001d0                i686_GDT_Load
+ *fill*         0x00000000001001f5        0xb 
+ .text          0x0000000000100200        0xd /mnt/c/os/build/kernel/asm/arch/i686/idt.obj
+                0x0000000000100200                i686_IDT_Load
+ *fill*         0x000000000010020d        0x3 
+ .text          0x0000000000100210       0x2d /mnt/c/os/build/kernel/asm/arch/i686/io.obj
+                0x0000000000100210                x86_outb
+                0x000000000010021b                x86_inb
+                0x0000000000100224                i686_panic
+                0x0000000000100226                crash_me
+                0x000000000010022e                i686_enable_interrupts
+                0x0000000000100230                i686_disable_interrupts
+                0x0000000000100232                flush_irq
+                0x0000000000100237                start_pic
+ *fill*         0x000000000010023d        0x3 
+ .text          0x0000000000100240      0xa6d /mnt/c/os/build/kernel/asm/arch/i686/isr.obj
+                0x0000000000100240                i686_ISR0
+                0x0000000000100249                i686_ISR1
+                0x0000000000100252                i686_ISR2
+                0x000000000010025b                i686_ISR3
+                0x0000000000100264                i686_ISR4
+                0x000000000010026d                i686_ISR5
+                0x0000000000100276                i686_ISR6
+                0x000000000010027f                i686_ISR7
+                0x0000000000100288                i686_ISR8
+                0x000000000010028f                i686_ISR9
+                0x0000000000100298                i686_ISR10
+                0x000000000010029f                i686_ISR11
+                0x00000000001002a6                i686_ISR12
+                0x00000000001002ad                i686_ISR13
+                0x00000000001002b4                i686_ISR14
+                0x00000000001002bb                i686_ISR15
+                0x00000000001002c4                i686_ISR16
+                0x00000000001002cd                i686_ISR17
+                0x00000000001002d4                i686_ISR18
+                0x00000000001002dd                i686_ISR19
+                0x00000000001002e6                i686_ISR20
+                0x00000000001002ef                i686_ISR21
+                0x00000000001002f6                i686_ISR22
+                0x00000000001002ff                i686_ISR23
+                0x0000000000100308                i686_ISR24
+                0x0000000000100311                i686_ISR25
+                0x000000000010031a                i686_ISR26
+                0x0000000000100323                i686_ISR27
+                0x000000000010032c                i686_ISR28
+                0x0000000000100335                i686_ISR29
+                0x000000000010033e                i686_ISR30
+                0x0000000000100347                i686_ISR31
+                0x0000000000100350                i686_ISR32
+                0x0000000000100359                i686_ISR33
+                0x0000000000100362                i686_ISR34
+                0x000000000010036b                i686_ISR35
+                0x0000000000100374                i686_ISR36
+                0x000000000010037d                i686_ISR37
+                0x0000000000100386                i686_ISR38
+                0x000000000010038f                i686_ISR39
+                0x0000000000100398                i686_ISR40
+                0x00000000001003a1                i686_ISR41
+                0x00000000001003aa                i686_ISR42
+                0x00000000001003b3                i686_ISR43
+                0x00000000001003bc                i686_ISR44
+                0x00000000001003c5                i686_ISR45
+                0x00000000001003ce                i686_ISR46
+                0x00000000001003d7                i686_ISR47
+                0x00000000001003e0                i686_ISR48
+                0x00000000001003e9                i686_ISR49
+                0x00000000001003f2                i686_ISR50
+                0x00000000001003fb                i686_ISR51
+                0x0000000000100404                i686_ISR52
+                0x000000000010040d                i686_ISR53
+                0x0000000000100416                i686_ISR54
+                0x000000000010041f                i686_ISR55
+                0x0000000000100428                i686_ISR56
+                0x0000000000100431                i686_ISR57
+                0x000000000010043a                i686_ISR58
+                0x0000000000100443                i686_ISR59
+                0x000000000010044c                i686_ISR60
+                0x0000000000100455                i686_ISR61
+                0x000000000010045e                i686_ISR62
+                0x0000000000100467                i686_ISR63
+                0x0000000000100470                i686_ISR64
+                0x0000000000100479                i686_ISR65
+                0x0000000000100482                i686_ISR66
+                0x000000000010048b                i686_ISR67
+                0x0000000000100494                i686_ISR68
+                0x000000000010049d                i686_ISR69
+                0x00000000001004a6                i686_ISR70
+                0x00000000001004af                i686_ISR71
+                0x00000000001004b8                i686_ISR72
+                0x00000000001004c1                i686_ISR73
+                0x00000000001004ca                i686_ISR74
+                0x00000000001004d3                i686_ISR75
+                0x00000000001004dc                i686_ISR76
+                0x00000000001004e5                i686_ISR77
+                0x00000000001004ee                i686_ISR78
+                0x00000000001004f7                i686_ISR79
+                0x0000000000100500                i686_ISR80
+                0x0000000000100509                i686_ISR81
+                0x0000000000100512                i686_ISR82
+                0x000000000010051b                i686_ISR83
+                0x0000000000100524                i686_ISR84
+                0x000000000010052d                i686_ISR85
+                0x0000000000100536                i686_ISR86
+                0x000000000010053f                i686_ISR87
+                0x0000000000100548                i686_ISR88
+                0x0000000000100551                i686_ISR89
+                0x000000000010055a                i686_ISR90
+                0x0000000000100563                i686_ISR91
+                0x000000000010056c                i686_ISR92
+                0x0000000000100575                i686_ISR93
+                0x000000000010057e                i686_ISR94
+                0x0000000000100587                i686_ISR95
+                0x0000000000100590                i686_ISR96
+                0x0000000000100599                i686_ISR97
+                0x00000000001005a2                i686_ISR98
+                0x00000000001005ab                i686_ISR99
+                0x00000000001005b4                i686_ISR100
+                0x00000000001005bd                i686_ISR101
+                0x00000000001005c6                i686_ISR102
+                0x00000000001005cf                i686_ISR103
+                0x00000000001005d8                i686_ISR104
+                0x00000000001005e1                i686_ISR105
+                0x00000000001005ea                i686_ISR106
+                0x00000000001005f3                i686_ISR107
+                0x00000000001005fc                i686_ISR108
+                0x0000000000100605                i686_ISR109
+                0x000000000010060e                i686_ISR110
+                0x0000000000100617                i686_ISR111
+                0x0000000000100620                i686_ISR112
+                0x0000000000100629                i686_ISR113
+                0x0000000000100632                i686_ISR114
+                0x000000000010063b                i686_ISR115
+                0x0000000000100644                i686_ISR116
+                0x000000000010064d                i686_ISR117
+                0x0000000000100656                i686_ISR118
+                0x000000000010065f                i686_ISR119
+                0x0000000000100668                i686_ISR120
+                0x0000000000100671                i686_ISR121
+                0x000000000010067a                i686_ISR122
+                0x0000000000100683                i686_ISR123
+                0x000000000010068c                i686_ISR124
+                0x0000000000100695                i686_ISR125
+                0x000000000010069e                i686_ISR126
+                0x00000000001006a7                i686_ISR127
+                0x00000000001006b0                i686_ISR128
+                0x00000000001006bc                i686_ISR129
+                0x00000000001006c8                i686_ISR130
+                0x00000000001006d4                i686_ISR131
+                0x00000000001006e0                i686_ISR132
+                0x00000000001006ec                i686_ISR133
+                0x00000000001006f8                i686_ISR134
+                0x0000000000100704                i686_ISR135
+                0x0000000000100710                i686_ISR136
+                0x000000000010071c                i686_ISR137
+                0x0000000000100728                i686_ISR138
+                0x0000000000100734                i686_ISR139
+                0x0000000000100740                i686_ISR140
+                0x000000000010074c                i686_ISR141
+                0x0000000000100758                i686_ISR142
+                0x0000000000100764                i686_ISR143
+                0x0000000000100770                i686_ISR144
+                0x000000000010077c                i686_ISR145
+                0x0000000000100788                i686_ISR146
+                0x0000000000100794                i686_ISR147
+                0x00000000001007a0                i686_ISR148
+                0x00000000001007ac                i686_ISR149
+                0x00000000001007b8                i686_ISR150
+                0x00000000001007c4                i686_ISR151
+                0x00000000001007d0                i686_ISR152
+                0x00000000001007dc                i686_ISR153
+                0x00000000001007e8                i686_ISR154
+                0x00000000001007f4                i686_ISR155
+                0x0000000000100800                i686_ISR156
+                0x000000000010080c                i686_ISR157
+                0x0000000000100818                i686_ISR158
+                0x0000000000100824                i686_ISR159
+                0x0000000000100830                i686_ISR160
+                0x000000000010083c                i686_ISR161
+                0x0000000000100848                i686_ISR162
+                0x0000000000100854                i686_ISR163
+                0x0000000000100860                i686_ISR164
+                0x000000000010086c                i686_ISR165
+                0x0000000000100878                i686_ISR166
+                0x0000000000100884                i686_ISR167
+                0x0000000000100890                i686_ISR168
+                0x000000000010089c                i686_ISR169
+                0x00000000001008a8                i686_ISR170
+                0x00000000001008b4                i686_ISR171
+                0x00000000001008c0                i686_ISR172
+                0x00000000001008cc                i686_ISR173
+                0x00000000001008d8                i686_ISR174
+                0x00000000001008e4                i686_ISR175
+                0x00000000001008f0                i686_ISR176
+                0x00000000001008fc                i686_ISR177
+                0x0000000000100908                i686_ISR178
+                0x0000000000100914                i686_ISR179
+                0x0000000000100920                i686_ISR180
+                0x000000000010092c                i686_ISR181
+                0x0000000000100938                i686_ISR182
+                0x0000000000100944                i686_ISR183
+                0x0000000000100950                i686_ISR184
+                0x000000000010095c                i686_ISR185
+                0x0000000000100968                i686_ISR186
+                0x0000000000100974                i686_ISR187
+                0x0000000000100980                i686_ISR188
+                0x000000000010098c                i686_ISR189
+                0x0000000000100998                i686_ISR190
+                0x00000000001009a4                i686_ISR191
+                0x00000000001009b0                i686_ISR192
+                0x00000000001009bc                i686_ISR193
+                0x00000000001009c8                i686_ISR194
+                0x00000000001009d4                i686_ISR195
+                0x00000000001009e0                i686_ISR196
+                0x00000000001009ec                i686_ISR197
+                0x00000000001009f8                i686_ISR198
+                0x0000000000100a04                i686_ISR199
+                0x0000000000100a10                i686_ISR200
+                0x0000000000100a1c                i686_ISR201
+                0x0000000000100a28                i686_ISR202
+                0x0000000000100a34                i686_ISR203
+                0x0000000000100a40                i686_ISR204
+                0x0000000000100a4c                i686_ISR205
+                0x0000000000100a58                i686_ISR206
+                0x0000000000100a64                i686_ISR207
+                0x0000000000100a70                i686_ISR208
+                0x0000000000100a7c                i686_ISR209
+                0x0000000000100a88                i686_ISR210
+                0x0000000000100a94                i686_ISR211
+                0x0000000000100aa0                i686_ISR212
+                0x0000000000100aac                i686_ISR213
+                0x0000000000100ab8                i686_ISR214
+                0x0000000000100ac4                i686_ISR215
+                0x0000000000100ad0                i686_ISR216
+                0x0000000000100adc                i686_ISR217
+                0x0000000000100ae8                i686_ISR218
+                0x0000000000100af4                i686_ISR219
+                0x0000000000100b00                i686_ISR220
+                0x0000000000100b0c                i686_ISR221
+                0x0000000000100b18                i686_ISR222
+                0x0000000000100b24                i686_ISR223
+                0x0000000000100b30                i686_ISR224
+                0x0000000000100b3c                i686_ISR225
+                0x0000000000100b48                i686_ISR226
+                0x0000000000100b54                i686_ISR227
+                0x0000000000100b60                i686_ISR228
+                0x0000000000100b6c                i686_ISR229
+                0x0000000000100b78                i686_ISR230
+                0x0000000000100b84                i686_ISR231
+                0x0000000000100b90                i686_ISR232
+                0x0000000000100b9c                i686_ISR233
+                0x0000000000100ba8                i686_ISR234
+                0x0000000000100bb4                i686_ISR235
+                0x0000000000100bc0                i686_ISR236
+                0x0000000000100bcc                i686_ISR237
+                0x0000000000100bd8                i686_ISR238
+                0x0000000000100be4                i686_ISR239
+                0x0000000000100bf0                i686_ISR240
+                0x0000000000100bfc                i686_ISR241
+                0x0000000000100c05                i686_ISR242
+                0x0000000000100c0e                i686_ISR243
+                0x0000000000100c17                i686_ISR244
+                0x0000000000100c20                i686_ISR245
+                0x0000000000100c29                i686_ISR246
+                0x0000000000100c32                i686_ISR247
+                0x0000000000100c3b                i686_ISR248
+                0x0000000000100c44                i686_ISR249
+                0x0000000000100c4d                i686_ISR250
+                0x0000000000100c56                i686_ISR251
+                0x0000000000100c5f                i686_ISR252
+                0x0000000000100c68                i686_ISR253
+                0x0000000000100c71                i686_ISR254
+                0x0000000000100c7a                i686_ISR255
+ *fill*         0x0000000000100cad        0x3 
+ .text          0x0000000000100cb0       0x3b /mnt/c/os/build/kernel/asm/arch/i686/rnd.obj
+                0x0000000000100cb0                x86_rand2
+                0x0000000000100cd3                x86_rand
+ *fill*         0x0000000000100ceb        0x5 
+ .text          0x0000000000100cf0      0x19d /mnt/c/os/build/kernel/asm/arch/i686/x86.obj
+                0x0000000000100cf0                x86dgdp
+                0x0000000000100db7                x86dreset
+                0x0000000000100e0b                x86dread
+ .text          0x0000000000100e8d       0xb8 /mnt/c/os/build/kernel/c/audio.obj
+                0x0000000000100e8d                play_sound
+                0x0000000000100f17                nosound
+ .text          0x0000000000100f45      0x87b /mnt/c/os/build/kernel/c/command.obj
+                0x0000000000100f45                check_for_beep_cmd
+                0x0000000000100f5f                set_beep_cmd
+                0x0000000000100f8a                clear_global_param_storage
+                0x0000000000100fd3                exec_command
+                0x0000000000101364                parse_command
+                0x00000000001014b6                clear_command
+                0x00000000001014de                try_parse_command
+                0x00000000001015d5                register_command
+                0x0000000000101645                register_commands
+ .text          0x00000000001017c0      0x289 /mnt/c/os/build/kernel/c/keyboard.obj
+                0x00000000001017c0                keystroke_reg
+                0x00000000001019fc                init_keyboard
+                0x0000000000101a3b                change_language
+ .text          0x0000000000101a49       0xdd /mnt/c/os/build/kernel/c/main.obj
+                0x0000000000101a49                timer_beep
+                0x0000000000101a85                timer
+ .text          0x0000000000101b26       0x43 /mnt/c/os/build/kernel/c/memory.obj
+                0x0000000000101b26                memset
+ .text          0x0000000000101b69      0xa32 /mnt/c/os/build/kernel/c/stdio.obj
+                0x0000000000101b69                enable_free_mode
+                0x0000000000101b81                set_global_color
+                0x0000000000101b99                putcolor
+                0x0000000000101bcb                putchr
+                0x0000000000101c1e                getchr
+                0x0000000000101c40                getcolor
+                0x0000000000101c65                setcursor
+                0x0000000000101cd6                move_cursor
+                0x0000000000101d71                clrscr
+                0x0000000000101dff                getcursor
+                0x0000000000101e1b                scrollback
+                0x0000000000101f09                putc
+                0x00000000001020a1                puts
+                0x00000000001020d0                printf_unsigned
+                0x0000000000102189                printf_signed
+                0x00000000001021e6                printf
+                0x0000000000102502                print_buffer
+ .text          0x000000000010259b      0x344 /mnt/c/os/build/kernel/c/stdlib.obj
+                0x000000000010259b                seeded_rand
+                0x00000000001025c2                set_rand
+                0x00000000001025d7                rand_UNSTABLE
+                0x0000000000102615                is_computer_on
+                0x000000000010261f                u_malloc
+                0x0000000000102670                fill_color_rect
+                0x00000000001026d0                display_startup
+                0x000000000010279a                display_motd
+                0x0000000000102813                gen_hunglish
+ .text          0x00000000001028df      0x208 /mnt/c/os/build/kernel/c/task_scheduler.obj
+                0x00000000001028df                persistent_prc
+                0x00000000001028e9                create_process
+                0x00000000001029b3                kill_process
+                0x0000000000102a1e                kill_persistent
+                0x0000000000102a74                check_process
+                0x0000000000102ab9                init_task_scheduler
+ .text          0x0000000000102ae7       0x1d /mnt/c/os/build/kernel/c/hal/hal.obj
+                0x0000000000102ae7                HAL_init
+ .text          0x0000000000102b04      0x1b9 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+                0x0000000000102b04                disk_initialize
+                0x0000000000102b84                disk_lba2chs
+                0x0000000000102c11                disk_read_sectors
+ .text          0x0000000000102cbd      0xbdb /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+                0x0000000000102cbd                strchr
+                0x0000000000102cfb                strcpy
+                0x0000000000102d4d                strlen
+                0x0000000000102d73                min
+                0x0000000000102d88                islower
+                0x0000000000102db1                toupper
+                0x0000000000102ddd                memcpy
+                0x0000000000102e2f                memcmp
+                0x0000000000102e8f                FAT_ReadBootSector
+                0x0000000000102eac                FAT_ReadFat
+                0x0000000000102ee0                FAT_Initialize
+                0x0000000000103114                FAT_ClusterToLba
+                0x0000000000103135                FAT_OpenEntry
+                0x00000000001032fd                FAT_NextCluster
+                0x000000000010334a                FAT_Read
+                0x0000000000103588                FAT_ReadEntry
+                0x00000000001035a9                FAT_Close
+                0x00000000001035f7                FAT_FindFile
+                0x0000000000103757                FAT_Open
+ .text          0x0000000000103898       0x1d /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+                0x0000000000103898                i686_GDT_Initialize
+ .text          0x00000000001038b5       0xbc /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+                0x00000000001038b5                i686_IDT_SetGate
+                0x0000000000103918                i686_IDT_EnableGate
+                0x0000000000103938                i686_IDT_DisableGate
+                0x0000000000103958                i686_IDT_Init
+ .text          0x0000000000103971       0x1b /mnt/c/os/build/kernel/c/arch/i686/io.obj
+                0x0000000000103971                i686_io_wait
+ .text          0x000000000010398c       0xd1 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+                0x000000000010398c                i686_IRQ_handler
+                0x0000000000103a03                i686_IRQ_reg_handlers
+                0x0000000000103a16                i686_IRQ_Init
+ .text          0x0000000000103a5d      0x1ac /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+                0x0000000000103a5d                i686_ISR_Init
+                0x0000000000103a90                throw_error
+                0x0000000000103b7f                i686_ISR_Handler
+                0x0000000000103be5                i686_ISR_RegisterHandler
+ .text          0x0000000000103c09     0x1489 /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+                0x0000000000103c09                i686_ISR_InitializeGates
+ .text          0x0000000000105092        0x0 /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .text          0x0000000000105092      0x322 /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+                0x0000000000105092                i686_PIC_Conf
+                0x0000000000105184                i686_PIC_mask
+                0x000000000010520d                i686_PIC_un_mask
+                0x000000000010529a                i686_PIC_disable
+                0x00000000001052d4                i686_PIC_send_eoi
+                0x0000000000105304                i686_PIC_read_irq
+                0x000000000010535c                i686_PIC_read_in_service
+ *fill*         0x00000000001053b4        0xc 
+ .text          0x00000000001053c0      0x12a /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+                0x00000000001053c0                __udivdi3
+ *fill*         0x00000000001054ea        0x6 
+ .text          0x00000000001054f0      0x150 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+                0x00000000001054f0                __umoddi3
+
+.data           0x0000000000105640      0x166
+                0x0000000000105640                __data_start = .
+ *(.data)
+ .data          0x0000000000105640        0x0 /mnt/c/os/build/kernel/c/audio.obj
+ .data          0x0000000000105640       0x50 /mnt/c/os/build/kernel/c/command.obj
+                0x0000000000105640                cur_command
+ .data          0x0000000000105690       0x10 /mnt/c/os/build/kernel/c/keyboard.obj
+                0x0000000000105690                lang_labels
+ .data          0x00000000001056a0        0x0 /mnt/c/os/build/kernel/c/main.obj
+ .data          0x00000000001056a0        0x0 /mnt/c/os/build/kernel/c/memory.obj
+ .data          0x00000000001056a0        0x4 /mnt/c/os/build/kernel/c/stdio.obj
+                0x00000000001056a0                global_screen_buffer
+ *fill*         0x00000000001056a4       0x1c 
+ .data          0x00000000001056c0       0xc0 /mnt/c/os/build/kernel/c/stdlib.obj
+                0x00000000001056c4                rnd_unsafe
+                0x00000000001056c8                motds
+                0x00000000001056e0                hu_weaks
+                0x0000000000105720                hu_strongs
+                0x0000000000105760                hu_abts
+ .data          0x0000000000105780        0x0 /mnt/c/os/build/kernel/c/task_scheduler.obj
+ .data          0x0000000000105780        0x0 /mnt/c/os/build/kernel/c/hal/hal.obj
+ .data          0x0000000000105780        0x0 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .data          0x0000000000105780        0x0 /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .data          0x0000000000105780       0x1e /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+                0x0000000000105780                global_GDT
+                0x0000000000105798                global_descriptor
+ *fill*         0x000000000010579e        0x2 
+ .data          0x00000000001057a0        0x6 /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+                0x00000000001057a0                global_idt_desc
+ .data          0x00000000001057a6        0x0 /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .data          0x00000000001057a6        0x0 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ .data          0x00000000001057a6        0x0 /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+ .data          0x00000000001057a6        0x0 /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .data          0x00000000001057a6        0x0 /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .data          0x00000000001057a6        0x0 /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+ .data          0x00000000001057a6        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .data          0x00000000001057a6        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.rodata         0x00000000001057c0     0x121c
+                0x00000000001057c0                __rodata_start = .
+ *(.rodata)
+ .rodata        0x00000000001057c0      0x597 /mnt/c/os/build/kernel/c/command.obj
+ *fill*         0x0000000000105d57        0x9 
+ .rodata        0x0000000000105d60      0x2a0 /mnt/c/os/build/kernel/c/keyboard.obj
+                0x0000000000105d80                kbdus_EN
+                0x0000000000105e00                kbdus_DE
+                0x0000000000105e80                kbdus_HU
+                0x0000000000105f00                kbdus_FR
+ .rodata        0x0000000000106000       0x17 /mnt/c/os/build/kernel/c/main.obj
+ *fill*         0x0000000000106017        0x1 
+ .rodata        0x0000000000106018       0xd2 /mnt/c/os/build/kernel/c/stdio.obj
+                0x0000000000106018                SCREEN_WIDTH
+                0x000000000010601c                SCREEN_HEIGHT
+                0x0000000000106020                DEFAULT_COLOR
+                0x0000000000106024                hex_chars
+ *fill*         0x00000000001060ea        0x2 
+ .rodata        0x00000000001060ec      0x395 /mnt/c/os/build/kernel/c/stdlib.obj
+                0x000000000010611c                motd_amount
+ *fill*         0x0000000000106481        0x3 
+ .rodata        0x0000000000106484       0x21 /mnt/c/os/build/kernel/c/task_scheduler.obj
+ *fill*         0x00000000001064a5        0x3 
+ .rodata        0x00000000001064a8       0x60 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .rodata        0x0000000000106508      0x16b /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ *fill*         0x0000000000106673        0x1 
+ .rodata        0x0000000000106674       0x25 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ *fill*         0x0000000000106699        0x7 
+ .rodata        0x00000000001066a0      0x33c /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+
+.eh_frame       0x00000000001069dc       0xd8
+ .eh_frame      0x00000000001069dc       0x64 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .eh_frame      0x0000000000106a40       0x74 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.bss            0x0000000000106ac0     0x146c
+                0x0000000000106ac0                __bss_start = .
+ *(.bss)
+ .bss           0x0000000000106ac0        0x0 /mnt/c/os/build/kernel/c/audio.obj
+ .bss           0x0000000000106ac0      0x5a4 /mnt/c/os/build/kernel/c/command.obj
+                0x0000000000106ac0                cmd_needs_beep
+                0x0000000000106ac4                command_count
+                0x0000000000106ae0                global_commands
+                0x0000000000106fe0                global_param_count
+                0x0000000000107000                global_param_storage
+ .bss           0x0000000000107064        0x9 /mnt/c/os/build/kernel/c/keyboard.obj
+                0x0000000000107064                caps_down
+                0x0000000000107065                num_lock_on
+                0x0000000000107066                scroll_lock_on
+                0x0000000000107068                language
+                0x000000000010706c                global_free_mode
+ *fill*         0x000000000010706d        0x3 
+ .bss           0x0000000000107070        0x9 /mnt/c/os/build/kernel/c/main.obj
+                0x0000000000107070                tick
+                0x0000000000107074                goal_tick
+                0x0000000000107078                tick_beeping
+ .bss           0x0000000000107079        0x0 /mnt/c/os/build/kernel/c/memory.obj
+ *fill*         0x0000000000107079        0x3 
+ .bss           0x000000000010707c        0xa /mnt/c/os/build/kernel/c/stdio.obj
+                0x000000000010707c                global_screen_x
+                0x0000000000107080                global_screen_y
+                0x0000000000107084                global_color
+                0x0000000000107085                en_freemode
+ .bss           0x0000000000107086        0x0 /mnt/c/os/build/kernel/c/stdlib.obj
+ *fill*         0x0000000000107086       0x1a 
+ .bss           0x00000000001070a0      0x220 /mnt/c/os/build/kernel/c/task_scheduler.obj
+                0x00000000001070a0                jprocess
+                0x00000000001070c0                global_processes
+ .bss           0x00000000001072c0        0x0 /mnt/c/os/build/kernel/c/hal/hal.obj
+ .bss           0x00000000001072c0        0x0 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .bss           0x00000000001072c0        0xc /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .bss           0x00000000001072cc        0x0 /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+ *fill*         0x00000000001072cc       0x14 
+ .bss           0x00000000001072e0      0x800 /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+                0x00000000001072e0                global_idt
+ .bss           0x0000000000107ae0        0x0 /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .bss           0x0000000000107ae0       0x40 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+                0x0000000000107ae0                global_IRQ_handlers
+ .bss           0x0000000000107b20      0x400 /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+                0x0000000000107b20                g_ISRHandlers
+ .bss           0x0000000000107f20        0x0 /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .bss           0x0000000000107f20        0x0 /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .bss           0x0000000000107f20        0xc /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+                0x0000000000107f20                PIC_ICW1
+                0x0000000000107f24                PIC_ICW4
+                0x0000000000107f28                PIC_CMD
+ .bss           0x0000000000107f2c        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .bss           0x0000000000107f2c        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+                0x0000000000107f2c                __end = .
+OUTPUT(/mnt/c/os/build/kernel.bin binary)
+
+.debug_info     0x0000000000000000     0x4b88
+ .debug_info    0x0000000000000000      0x11e /mnt/c/os/build/kernel/c/audio.obj
+ .debug_info    0x000000000000011e      0x4de /mnt/c/os/build/kernel/c/command.obj
+ .debug_info    0x00000000000005fc      0x39b /mnt/c/os/build/kernel/c/keyboard.obj
+ .debug_info    0x0000000000000997      0x4a0 /mnt/c/os/build/kernel/c/main.obj
+ .debug_info    0x0000000000000e37       0xf5 /mnt/c/os/build/kernel/c/memory.obj
+ .debug_info    0x0000000000000f2c      0x619 /mnt/c/os/build/kernel/c/stdio.obj
+ .debug_info    0x0000000000001545      0x3c4 /mnt/c/os/build/kernel/c/stdlib.obj
+ .debug_info    0x0000000000001909      0x262 /mnt/c/os/build/kernel/c/task_scheduler.obj
+ .debug_info    0x0000000000001b6b       0xb3 /mnt/c/os/build/kernel/c/hal/hal.obj
+ .debug_info    0x0000000000001c1e      0x2d5 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .debug_info    0x0000000000001ef3      0xb61 /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .debug_info    0x0000000000002a54      0x200 /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+ .debug_info    0x0000000000002c54      0x24e /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+ .debug_info    0x0000000000002ea2       0xac /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .debug_info    0x0000000000002f4e      0x303 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ .debug_info    0x0000000000003251      0x2af /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+ .debug_info    0x0000000000003500      0xd09 /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .debug_info    0x0000000000004209       0x65 /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .debug_info    0x000000000000426e      0x2ab /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+ .debug_info    0x0000000000004519      0x32c /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_info    0x0000000000004845      0x343 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.debug_abbrev   0x0000000000000000     0x1b1c
+ .debug_abbrev  0x0000000000000000       0xc2 /mnt/c/os/build/kernel/c/audio.obj
+ .debug_abbrev  0x00000000000000c2      0x244 /mnt/c/os/build/kernel/c/command.obj
+ .debug_abbrev  0x0000000000000306      0x1c0 /mnt/c/os/build/kernel/c/keyboard.obj
+ .debug_abbrev  0x00000000000004c6      0x17f /mnt/c/os/build/kernel/c/main.obj
+ .debug_abbrev  0x0000000000000645       0xb6 /mnt/c/os/build/kernel/c/memory.obj
+ .debug_abbrev  0x00000000000006fb      0x1fb /mnt/c/os/build/kernel/c/stdio.obj
+ .debug_abbrev  0x00000000000008f6      0x1ca /mnt/c/os/build/kernel/c/stdlib.obj
+ .debug_abbrev  0x0000000000000ac0      0x195 /mnt/c/os/build/kernel/c/task_scheduler.obj
+ .debug_abbrev  0x0000000000000c55       0x5a /mnt/c/os/build/kernel/c/hal/hal.obj
+ .debug_abbrev  0x0000000000000caf      0x161 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .debug_abbrev  0x0000000000000e10      0x27b /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .debug_abbrev  0x000000000000108b       0xf0 /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+ .debug_abbrev  0x000000000000117b      0x122 /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+ .debug_abbrev  0x000000000000129d       0x6d /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .debug_abbrev  0x000000000000130a      0x192 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ .debug_abbrev  0x000000000000149c      0x150 /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+ .debug_abbrev  0x00000000000015ec       0xbf /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .debug_abbrev  0x00000000000016ab       0x26 /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .debug_abbrev  0x00000000000016d1      0x17f /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+ .debug_abbrev  0x0000000000001850      0x15b /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x00000000000019ab      0x171 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.debug_aranges  0x0000000000000000      0x2a0
+ .debug_aranges
+                0x0000000000000000       0x20 /mnt/c/os/build/kernel/c/audio.obj
+ .debug_aranges
+                0x0000000000000020       0x20 /mnt/c/os/build/kernel/c/command.obj
+ .debug_aranges
+                0x0000000000000040       0x20 /mnt/c/os/build/kernel/c/keyboard.obj
+ .debug_aranges
+                0x0000000000000060       0x28 /mnt/c/os/build/kernel/c/main.obj
+ .debug_aranges
+                0x0000000000000088       0x20 /mnt/c/os/build/kernel/c/memory.obj
+ .debug_aranges
+                0x00000000000000a8       0x20 /mnt/c/os/build/kernel/c/stdio.obj
+ .debug_aranges
+                0x00000000000000c8       0x20 /mnt/c/os/build/kernel/c/stdlib.obj
+ .debug_aranges
+                0x00000000000000e8       0x20 /mnt/c/os/build/kernel/c/task_scheduler.obj
+ .debug_aranges
+                0x0000000000000108       0x20 /mnt/c/os/build/kernel/c/hal/hal.obj
+ .debug_aranges
+                0x0000000000000128       0x20 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .debug_aranges
+                0x0000000000000148       0x20 /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .debug_aranges
+                0x0000000000000168       0x20 /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+ .debug_aranges
+                0x0000000000000188       0x20 /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+ .debug_aranges
+                0x00000000000001a8       0x20 /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .debug_aranges
+                0x00000000000001c8       0x20 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ .debug_aranges
+                0x00000000000001e8       0x20 /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+ .debug_aranges
+                0x0000000000000208       0x20 /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .debug_aranges
+                0x0000000000000228       0x18 /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .debug_aranges
+                0x0000000000000240       0x20 /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+ .debug_aranges
+                0x0000000000000260       0x20 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_aranges
+                0x0000000000000280       0x20 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.debug_line     0x0000000000000000     0x1f18
+ .debug_line    0x0000000000000000       0x8c /mnt/c/os/build/kernel/c/audio.obj
+ .debug_line    0x000000000000008c      0x2e3 /mnt/c/os/build/kernel/c/command.obj
+ .debug_line    0x000000000000036f      0x16f /mnt/c/os/build/kernel/c/keyboard.obj
+ .debug_line    0x00000000000004de      0x11c /mnt/c/os/build/kernel/c/main.obj
+ .debug_line    0x00000000000005fa       0x80 /mnt/c/os/build/kernel/c/memory.obj
+ .debug_line    0x000000000000067a      0x466 /mnt/c/os/build/kernel/c/stdio.obj
+ .debug_line    0x0000000000000ae0      0x1ab /mnt/c/os/build/kernel/c/stdlib.obj
+ .debug_line    0x0000000000000c8b      0x158 /mnt/c/os/build/kernel/c/task_scheduler.obj
+ .debug_line    0x0000000000000de3       0x6a /mnt/c/os/build/kernel/c/hal/hal.obj
+ .debug_line    0x0000000000000e4d      0x103 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .debug_line    0x0000000000000f50      0x5ce /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .debug_line    0x000000000000151e       0x5c /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+ .debug_line    0x000000000000157a       0x8f /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+ .debug_line    0x0000000000001609       0x5e /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .debug_line    0x0000000000001667       0xd2 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ .debug_line    0x0000000000001739       0xe0 /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+ .debug_line    0x0000000000001819      0x25f /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .debug_line    0x0000000000001a78       0x31 /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .debug_line    0x0000000000001aa9      0x121 /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+ .debug_line    0x0000000000001bca      0x179 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_line    0x0000000000001d43      0x1d5 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.debug_str      0x0000000000000000     0x38a6
+ .debug_str     0x0000000000000000      0x118 /mnt/c/os/build/kernel/c/audio.obj
+ .debug_str     0x0000000000000118      0x2fd /mnt/c/os/build/kernel/c/command.obj
+ .debug_str     0x0000000000000415      0x241 /mnt/c/os/build/kernel/c/keyboard.obj
+ .debug_str     0x0000000000000656      0x2ea /mnt/c/os/build/kernel/c/main.obj
+ .debug_str     0x0000000000000940       0xf3 /mnt/c/os/build/kernel/c/memory.obj
+ .debug_str     0x0000000000000a33      0x2b6 /mnt/c/os/build/kernel/c/stdio.obj
+ .debug_str     0x0000000000000ce9      0x207 /mnt/c/os/build/kernel/c/stdlib.obj
+ .debug_str     0x0000000000000ef0      0x18e /mnt/c/os/build/kernel/c/task_scheduler.obj
+ .debug_str     0x000000000000107e      0x116 /mnt/c/os/build/kernel/c/hal/hal.obj
+ .debug_str     0x0000000000001194      0x1b5 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .debug_str     0x0000000000001349      0x64a /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .debug_str     0x0000000000001993      0x30e /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+ .debug_str     0x0000000000001ca1      0x28d /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+ .debug_str     0x0000000000001f2e       0xf6 /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .debug_str     0x0000000000002024      0x221 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ .debug_str     0x0000000000002245      0x1bd /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+ .debug_str     0x0000000000002402      0xd5e /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .debug_str     0x0000000000003160       0xcf /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .debug_str     0x000000000000322f      0x2b1 /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+ .debug_str     0x00000000000034e0      0x1e3 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_str     0x00000000000036c3      0x1e3 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.debug_line_str
+                0x0000000000000000      0xe72
+ .debug_line_str
+                0x0000000000000000       0x9d /mnt/c/os/build/kernel/c/audio.obj
+ .debug_line_str
+                0x000000000000009d       0xe9 /mnt/c/os/build/kernel/c/command.obj
+ .debug_line_str
+                0x0000000000000186       0xc6 /mnt/c/os/build/kernel/c/keyboard.obj
+ .debug_line_str
+                0x000000000000024c      0x119 /mnt/c/os/build/kernel/c/main.obj
+ .debug_line_str
+                0x0000000000000365       0x8f /mnt/c/os/build/kernel/c/memory.obj
+ .debug_line_str
+                0x00000000000003f4       0xa6 /mnt/c/os/build/kernel/c/stdio.obj
+ .debug_line_str
+                0x000000000000049a       0xab /mnt/c/os/build/kernel/c/stdlib.obj
+ .debug_line_str
+                0x0000000000000545       0x67 /mnt/c/os/build/kernel/c/task_scheduler.obj
+ .debug_line_str
+                0x00000000000005ac       0x6c /mnt/c/os/build/kernel/c/hal/hal.obj
+ .debug_line_str
+                0x0000000000000618       0xbe /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .debug_line_str
+                0x00000000000006d6       0xd4 /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .debug_line_str
+                0x00000000000007aa       0xa4 /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+ .debug_line_str
+                0x000000000000084e       0xaa /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+ .debug_line_str
+                0x00000000000008f8       0xa6 /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .debug_line_str
+                0x000000000000099e       0xc5 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ .debug_line_str
+                0x0000000000000a63       0xbf /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+ .debug_line_str
+                0x0000000000000b22       0xb9 /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .debug_line_str
+                0x0000000000000bdb       0x50 /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .debug_line_str
+                0x0000000000000c2b       0xa9 /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+ .debug_line_str
+                0x0000000000000cd4       0xcf /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_line_str
+                0x0000000000000da3       0xcf /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.comment        0x0000000000000000      0x18f
+ .comment       0x0000000000000000       0x13 /mnt/c/os/build/kernel/c/audio.obj
+ .comment       0x0000000000000013       0x13 /mnt/c/os/build/kernel/c/command.obj
+ .comment       0x0000000000000026       0x13 /mnt/c/os/build/kernel/c/keyboard.obj
+ .comment       0x0000000000000039       0x13 /mnt/c/os/build/kernel/c/main.obj
+ .comment       0x000000000000004c       0x13 /mnt/c/os/build/kernel/c/memory.obj
+ .comment       0x000000000000005f       0x13 /mnt/c/os/build/kernel/c/stdio.obj
+ .comment       0x0000000000000072       0x13 /mnt/c/os/build/kernel/c/stdlib.obj
+ .comment       0x0000000000000085       0x13 /mnt/c/os/build/kernel/c/task_scheduler.obj
+ .comment       0x0000000000000098       0x13 /mnt/c/os/build/kernel/c/hal/hal.obj
+ .comment       0x00000000000000ab       0x13 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .comment       0x00000000000000be       0x13 /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .comment       0x00000000000000d1       0x13 /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+ .comment       0x00000000000000e4       0x13 /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+ .comment       0x00000000000000f7       0x13 /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .comment       0x000000000000010a       0x13 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ .comment       0x000000000000011d       0x13 /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+ .comment       0x0000000000000130       0x13 /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .comment       0x0000000000000143       0x13 /mnt/c/os/build/kernel/c/arch/i686/memory.obj
+ .comment       0x0000000000000156       0x13 /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+ .comment       0x0000000000000169       0x13 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .comment       0x000000000000017c       0x13 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.debug_frame    0x0000000000000000      0xd6c
+ .debug_frame   0x0000000000000000       0x54 /mnt/c/os/build/kernel/c/audio.obj
+ .debug_frame   0x0000000000000054      0x134 /mnt/c/os/build/kernel/c/command.obj
+ .debug_frame   0x0000000000000188       0x74 /mnt/c/os/build/kernel/c/keyboard.obj
+ .debug_frame   0x00000000000001fc       0x6c /mnt/c/os/build/kernel/c/main.obj
+ .debug_frame   0x0000000000000268       0x34 /mnt/c/os/build/kernel/c/memory.obj
+ .debug_frame   0x000000000000029c      0x240 /mnt/c/os/build/kernel/c/stdio.obj
+ .debug_frame   0x00000000000004dc      0x144 /mnt/c/os/build/kernel/c/stdlib.obj
+ .debug_frame   0x0000000000000620       0xd4 /mnt/c/os/build/kernel/c/task_scheduler.obj
+ .debug_frame   0x00000000000006f4       0x34 /mnt/c/os/build/kernel/c/hal/hal.obj
+ .debug_frame   0x0000000000000728       0x80 /mnt/c/os/build/kernel/c/arch/i686/disk.obj
+ .debug_frame   0x00000000000007a8      0x284 /mnt/c/os/build/kernel/c/arch/i686/fat.obj
+ .debug_frame   0x0000000000000a2c       0x34 /mnt/c/os/build/kernel/c/arch/i686/gdt.obj
+ .debug_frame   0x0000000000000a60       0x94 /mnt/c/os/build/kernel/c/arch/i686/idt.obj
+ .debug_frame   0x0000000000000af4       0x34 /mnt/c/os/build/kernel/c/arch/i686/io.obj
+ .debug_frame   0x0000000000000b28       0x74 /mnt/c/os/build/kernel/c/arch/i686/irq.obj
+ .debug_frame   0x0000000000000b9c       0xa0 /mnt/c/os/build/kernel/c/arch/i686/isr.obj
+ .debug_frame   0x0000000000000c3c       0x34 /mnt/c/os/build/kernel/c/arch/i686/isrs_gen.obj
+ .debug_frame   0x0000000000000c70       0xfc /mnt/c/os/build/kernel/c/arch/i686/pic.obj
+
+.debug_rnglists
+                0x0000000000000000       0x7b
+ .debug_rnglists
+                0x0000000000000000       0x17 /mnt/c/os/build/kernel/c/keyboard.obj
+ .debug_rnglists
+                0x0000000000000017       0x1a /mnt/c/os/build/kernel/c/main.obj
+ .debug_rnglists
+                0x0000000000000031       0x2a /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_rnglists
+                0x000000000000005b       0x20 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+
+.debug_loclists
+                0x0000000000000000      0x9a0
+ .debug_loclists
+                0x0000000000000000      0x50b /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_loclists
+                0x000000000000050b      0x495 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
