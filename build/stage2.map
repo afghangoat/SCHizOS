@@ -33,7 +33,7 @@ LOAD /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a
  .entry         0x0000000000000500       0xc0 /mnt/c/os/build/stage2/asm/entry.obj
                 0x0000000000000500                entry
 
-.text           0x00000000000005c0     0x3230
+.text           0x00000000000005c0     0x34d0
                 0x00000000000005c0                __text_start = .
  *(.text)
  .text          0x00000000000005c0      0x250 /mnt/c/os/build/stage2/asm/x86.obj
@@ -59,187 +59,189 @@ LOAD /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a
                 0x00000000000010ec                FAT_Close
                 0x000000000000113a                FAT_FindFile
                 0x000000000000129a                FAT_Open
- .text          0x00000000000013e7      0x156 /mnt/c/os/build/stage2/c/main.obj
-                0x00000000000013e7                start
- .text          0x000000000000153d      0x119 /mnt/c/os/build/stage2/c/memdetect.obj
-                0x000000000000153d                memory_detect
- .text          0x0000000000001656      0x8ac /mnt/c/os/build/stage2/c/stdio.obj
-                0x0000000000001656                putchr
-                0x0000000000001685                putcolor
-                0x00000000000016b7                getchr
-                0x00000000000016d9                getcolor
-                0x00000000000016fe                setcursor
-                0x000000000000176f                clrscr
-                0x00000000000017fd                scrollback
-                0x00000000000018eb                putc
-                0x00000000000019f8                puts
-                0x0000000000001a27                printf_unsigned
-                0x0000000000001ae0                printf_signed
-                0x0000000000001b3d                printf
-                0x0000000000001e69                print_buffer
- .text          0x0000000000001f02      0x31f /mnt/c/os/build/stage2/c/../../libs/ctype.obj
-                0x0000000000001f02                islower
-                0x0000000000001f2b                isupper
-                0x0000000000001f54                toupper
-                0x0000000000001f80                isalnum
-                0x0000000000001fcb                isalpha
-                0x000000000000200a                isblank
-                0x0000000000002030                iscntrl
-                0x0000000000002045                isdigit
-                0x000000000000206e                isgraph
-                0x000000000000209a                isprint
-                0x00000000000020d6                ispunct
-                0x0000000000002144                isspace
-                0x0000000000002164                isxdigit
-                0x00000000000021f5                tolower
- .text          0x0000000000002221      0xc0b /mnt/c/os/build/stage2/c/../../libs/math.obj
-                0x0000000000002221                align
-                0x0000000000002258                min
-                0x000000000000226d                max
-                0x0000000000002282                pow
-                0x0000000000002306                factorial
-                0x0000000000002362                acos
-                0x00000000000023b8                asin
-                0x0000000000002445                atan
-                0x000000000000253c                atan2
-                0x0000000000002663                cos
-                0x0000000000002708                cosh
-                0x00000000000027a0                sin
-                0x0000000000002852                sinh
-                0x00000000000028ea                tan
-                0x000000000000292e                tanh
-                0x0000000000002972                exp
-                0x00000000000029bc                frexp
-                0x0000000000002a76                ldexp
-                0x0000000000002ab6                log
-                0x0000000000002b6b                log10
-                0x0000000000002ba1                modf
-                0x0000000000002c1a                sqrt
-                0x0000000000002cd9                ceil
-                0x0000000000002d13                fabs
-                0x0000000000002d3c                abs
-                0x0000000000002d51                floor
-                0x0000000000002d82                fmod
-                0x0000000000002dc4                round
- .text          0x0000000000002e2c      0x1e2 /mnt/c/os/build/stage2/c/../../libs/memory.obj
-                0x0000000000002e2c                memcpy
-                0x0000000000002e7e                memset
-                0x0000000000002ec1                memcmp
-                0x0000000000002f21                memchr
-                0x0000000000002f76                memmove
- .text          0x000000000000300e      0x557 /mnt/c/os/build/stage2/c/../../libs/string.obj
-                0x000000000000300e                strchr
-                0x000000000000304c                strcpy
-                0x000000000000309e                strlen
-                0x00000000000030c4                end_of_str
-                0x00000000000030ea                strcat
-                0x0000000000003140                strncat
-                0x00000000000031aa                strcmp
-                0x0000000000003227                strncmp
-                0x00000000000032b1                strncpy
-                0x0000000000003318                strcspn
-                0x0000000000003389                strerror
-                0x00000000000033ad                strpbrk
-                0x000000000000341e                strrchr
-                0x0000000000003473                strspn
-                0x00000000000034de                strstr
- *fill*         0x0000000000003565        0xb 
- .text          0x0000000000003570      0x12a /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
-                0x0000000000003570                __udivdi3
- *fill*         0x000000000000369a        0x6 
- .text          0x00000000000036a0      0x150 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
-                0x00000000000036a0                __umoddi3
+ .text          0x00000000000013e7      0x3f7 /mnt/c/os/build/stage2/c/main.obj
+                0x00000000000013e7                copyToFileK
+                0x0000000000001479                start
+ .text          0x00000000000017de      0x119 /mnt/c/os/build/stage2/c/memdetect.obj
+                0x00000000000017de                memory_detect
+ .text          0x00000000000018f7      0x8ac /mnt/c/os/build/stage2/c/stdio.obj
+                0x00000000000018f7                putchr
+                0x0000000000001926                putcolor
+                0x0000000000001958                getchr
+                0x000000000000197a                getcolor
+                0x000000000000199f                setcursor
+                0x0000000000001a10                clrscr
+                0x0000000000001a9e                scrollback
+                0x0000000000001b8c                putc
+                0x0000000000001c99                puts
+                0x0000000000001cc8                printf_unsigned
+                0x0000000000001d81                printf_signed
+                0x0000000000001dde                printf
+                0x000000000000210a                print_buffer
+ .text          0x00000000000021a3      0x31f /mnt/c/os/build/stage2/c/../../libs/ctype.obj
+                0x00000000000021a3                islower
+                0x00000000000021cc                isupper
+                0x00000000000021f5                toupper
+                0x0000000000002221                isalnum
+                0x000000000000226c                isalpha
+                0x00000000000022ab                isblank
+                0x00000000000022d1                iscntrl
+                0x00000000000022e6                isdigit
+                0x000000000000230f                isgraph
+                0x000000000000233b                isprint
+                0x0000000000002377                ispunct
+                0x00000000000023e5                isspace
+                0x0000000000002405                isxdigit
+                0x0000000000002496                tolower
+ .text          0x00000000000024c2      0xc0b /mnt/c/os/build/stage2/c/../../libs/math.obj
+                0x00000000000024c2                align
+                0x00000000000024f9                min
+                0x000000000000250e                max
+                0x0000000000002523                pow
+                0x00000000000025a7                factorial
+                0x0000000000002603                acos
+                0x0000000000002659                asin
+                0x00000000000026e6                atan
+                0x00000000000027dd                atan2
+                0x0000000000002904                cos
+                0x00000000000029a9                cosh
+                0x0000000000002a41                sin
+                0x0000000000002af3                sinh
+                0x0000000000002b8b                tan
+                0x0000000000002bcf                tanh
+                0x0000000000002c13                exp
+                0x0000000000002c5d                frexp
+                0x0000000000002d17                ldexp
+                0x0000000000002d57                log
+                0x0000000000002e0c                log10
+                0x0000000000002e42                modf
+                0x0000000000002ebb                sqrt
+                0x0000000000002f7a                ceil
+                0x0000000000002fb4                fabs
+                0x0000000000002fdd                abs
+                0x0000000000002ff2                floor
+                0x0000000000003023                fmod
+                0x0000000000003065                round
+ .text          0x00000000000030cd      0x1e2 /mnt/c/os/build/stage2/c/../../libs/memory.obj
+                0x00000000000030cd                memcpy
+                0x000000000000311f                memset
+                0x0000000000003162                memcmp
+                0x00000000000031c2                memchr
+                0x0000000000003217                memmove
+ .text          0x00000000000032af      0x557 /mnt/c/os/build/stage2/c/../../libs/string.obj
+                0x00000000000032af                strchr
+                0x00000000000032ed                strcpy
+                0x000000000000333f                strlen
+                0x0000000000003365                end_of_str
+                0x000000000000338b                strcat
+                0x00000000000033e1                strncat
+                0x000000000000344b                strcmp
+                0x00000000000034c8                strncmp
+                0x0000000000003552                strncpy
+                0x00000000000035b9                strcspn
+                0x000000000000362a                strerror
+                0x000000000000364e                strpbrk
+                0x00000000000036bf                strrchr
+                0x0000000000003714                strspn
+                0x000000000000377f                strstr
+ *fill*         0x0000000000003806        0xa 
+ .text          0x0000000000003810      0x12a /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+                0x0000000000003810                __udivdi3
+ *fill*         0x000000000000393a        0x6 
+ .text          0x0000000000003940      0x150 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+                0x0000000000003940                __umoddi3
 
-.data           0x00000000000037f0       0x20
-                0x00000000000037f0                __data_start = .
+.data           0x0000000000003a90       0x20
+                0x0000000000003a90                __data_start = .
  *(.data)
- .data          0x00000000000037f0        0x0 /mnt/c/os/build/stage2/c/disk.obj
- .data          0x00000000000037f0        0x0 /mnt/c/os/build/stage2/c/fat.obj
- .data          0x00000000000037f0        0x8 /mnt/c/os/build/stage2/c/main.obj
-                0x00000000000037f0                KernelLoadBuffer
-                0x00000000000037f4                Kernel
- .data          0x00000000000037f8        0x0 /mnt/c/os/build/stage2/c/memdetect.obj
- .data          0x00000000000037f8        0x4 /mnt/c/os/build/stage2/c/stdio.obj
-                0x00000000000037f8                global_screen_buffer
- .data          0x00000000000037fc        0x0 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
- .data          0x00000000000037fc        0x0 /mnt/c/os/build/stage2/c/../../libs/math.obj
- .data          0x00000000000037fc        0x0 /mnt/c/os/build/stage2/c/../../libs/memory.obj
- .data          0x00000000000037fc       0x14 /mnt/c/os/build/stage2/c/../../libs/string.obj
-                0x00000000000037fc                err_msg_strings
- .data          0x0000000000003810        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
- .data          0x0000000000003810        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+ .data          0x0000000000003a90        0x0 /mnt/c/os/build/stage2/c/disk.obj
+ .data          0x0000000000003a90        0x0 /mnt/c/os/build/stage2/c/fat.obj
+ .data          0x0000000000003a90        0x8 /mnt/c/os/build/stage2/c/main.obj
+                0x0000000000003a90                KernelLoadBuffer
+                0x0000000000003a94                Kernel
+ .data          0x0000000000003a98        0x0 /mnt/c/os/build/stage2/c/memdetect.obj
+ .data          0x0000000000003a98        0x4 /mnt/c/os/build/stage2/c/stdio.obj
+                0x0000000000003a98                global_screen_buffer
+ .data          0x0000000000003a9c        0x0 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
+ .data          0x0000000000003a9c        0x0 /mnt/c/os/build/stage2/c/../../libs/math.obj
+ .data          0x0000000000003a9c        0x0 /mnt/c/os/build/stage2/c/../../libs/memory.obj
+ .data          0x0000000000003a9c       0x14 /mnt/c/os/build/stage2/c/../../libs/string.obj
+                0x0000000000003a9c                err_msg_strings
+ .data          0x0000000000003ab0        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .data          0x0000000000003ab0        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
 
-.rodata         0x0000000000003810      0x459
-                0x0000000000003810                __rodata_start = .
+.rodata         0x0000000000003ab0      0x479
+                0x0000000000003ab0                __rodata_start = .
  *(.rodata)
- .rodata        0x0000000000003810       0x60 /mnt/c/os/build/stage2/c/disk.obj
- .rodata        0x0000000000003870      0x16b /mnt/c/os/build/stage2/c/fat.obj
- *fill*         0x00000000000039db        0x1 
- .rodata        0x00000000000039dc       0xab /mnt/c/os/build/stage2/c/main.obj
- *fill*         0x0000000000003a87        0x1 
- .rodata        0x0000000000003a88       0x28 /mnt/c/os/build/stage2/c/memdetect.obj
- .rodata        0x0000000000003ab0       0xd2 /mnt/c/os/build/stage2/c/stdio.obj
-                0x0000000000003ab0                SCREEN_WIDTH
-                0x0000000000003ab4                SCREEN_HEIGHT
-                0x0000000000003ab8                DEFAULT_COLOR
-                0x0000000000003abc                hex_chars
- *fill*         0x0000000000003b82        0xe 
- .rodata        0x0000000000003b90       0xac /mnt/c/os/build/stage2/c/../../libs/math.obj
- .rodata        0x0000000000003c3c       0x2d /mnt/c/os/build/stage2/c/../../libs/string.obj
+ .rodata        0x0000000000003ab0       0x60 /mnt/c/os/build/stage2/c/disk.obj
+ .rodata        0x0000000000003b10      0x16b /mnt/c/os/build/stage2/c/fat.obj
+ *fill*         0x0000000000003c7b        0x1 
+ .rodata        0x0000000000003c7c       0xcf /mnt/c/os/build/stage2/c/main.obj
+ *fill*         0x0000000000003d4b        0x1 
+ .rodata        0x0000000000003d4c       0x28 /mnt/c/os/build/stage2/c/memdetect.obj
+ .rodata        0x0000000000003d74       0xd2 /mnt/c/os/build/stage2/c/stdio.obj
+                0x0000000000003d74                SCREEN_WIDTH
+                0x0000000000003d78                SCREEN_HEIGHT
+                0x0000000000003d7c                DEFAULT_COLOR
+                0x0000000000003d80                hex_chars
+ *fill*         0x0000000000003e46        0xa 
+ .rodata        0x0000000000003e50       0xac /mnt/c/os/build/stage2/c/../../libs/math.obj
+ .rodata        0x0000000000003efc       0x2d /mnt/c/os/build/stage2/c/../../libs/string.obj
 
-.eh_frame       0x0000000000003c6c       0xd8
- .eh_frame      0x0000000000003c6c       0x64 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
- .eh_frame      0x0000000000003cd0       0x74 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+.eh_frame       0x0000000000003f2c       0xd8
+ .eh_frame      0x0000000000003f2c       0x64 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .eh_frame      0x0000000000003f90       0x74 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
 
-.bss            0x0000000000003d60     0x1840
-                0x0000000000003d60                __bss_start = .
+.bss            0x0000000000004020     0x2ce0
+                0x0000000000004020                __bss_start = .
  *(.bss)
- .bss           0x0000000000003d60        0x0 /mnt/c/os/build/stage2/c/disk.obj
- .bss           0x0000000000003d60        0xc /mnt/c/os/build/stage2/c/fat.obj
- .bss           0x0000000000003d6c        0xc /mnt/c/os/build/stage2/c/main.obj
-                0x0000000000003d6c                boot_params
- *fill*         0x0000000000003d78        0x8 
- .bss           0x0000000000003d80     0x1804 /mnt/c/os/build/stage2/c/memdetect.obj
-                0x0000000000003d80                global_memory_regions
-                0x0000000000005580                global_memory_reg_count
- .bss           0x0000000000005584        0x8 /mnt/c/os/build/stage2/c/stdio.obj
-                0x0000000000005584                global_screen_x
-                0x0000000000005588                global_screen_y
- .bss           0x000000000000558c        0x0 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
- .bss           0x000000000000558c        0x0 /mnt/c/os/build/stage2/c/../../libs/math.obj
- .bss           0x000000000000558c        0x0 /mnt/c/os/build/stage2/c/../../libs/memory.obj
- .bss           0x000000000000558c       0x14 /mnt/c/os/build/stage2/c/../../libs/string.obj
-                0x000000000000558c                internal_error_array
- .bss           0x00000000000055a0        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
- .bss           0x00000000000055a0        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
-                0x00000000000055a0                __end = .
+ .bss           0x0000000000004020        0x0 /mnt/c/os/build/stage2/c/disk.obj
+ .bss           0x0000000000004020        0xc /mnt/c/os/build/stage2/c/fat.obj
+ *fill*         0x000000000000402c       0x14 
+ .bss           0x0000000000004040     0x1488 /mnt/c/os/build/stage2/c/main.obj
+                0x0000000000004040                boot_params
+ *fill*         0x00000000000054c8       0x18 
+ .bss           0x00000000000054e0     0x1804 /mnt/c/os/build/stage2/c/memdetect.obj
+                0x00000000000054e0                global_memory_regions
+                0x0000000000006ce0                global_memory_reg_count
+ .bss           0x0000000000006ce4        0x8 /mnt/c/os/build/stage2/c/stdio.obj
+                0x0000000000006ce4                global_screen_x
+                0x0000000000006ce8                global_screen_y
+ .bss           0x0000000000006cec        0x0 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
+ .bss           0x0000000000006cec        0x0 /mnt/c/os/build/stage2/c/../../libs/math.obj
+ .bss           0x0000000000006cec        0x0 /mnt/c/os/build/stage2/c/../../libs/memory.obj
+ .bss           0x0000000000006cec       0x14 /mnt/c/os/build/stage2/c/../../libs/string.obj
+                0x0000000000006cec                internal_error_array
+ .bss           0x0000000000006d00        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .bss           0x0000000000006d00        0x0 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+                0x0000000000006d00                __end = .
 OUTPUT(/mnt/c/os/build/stage2.bin binary)
 
-.debug_info     0x0000000000000000     0x30e7
+.debug_info     0x0000000000000000     0x3387
  .debug_info    0x0000000000000000      0x2d5 /mnt/c/os/build/stage2/c/disk.obj
  .debug_info    0x00000000000002d5      0x9c2 /mnt/c/os/build/stage2/c/fat.obj
- .debug_info    0x0000000000000c97      0x3a9 /mnt/c/os/build/stage2/c/main.obj
- .debug_info    0x0000000000001040      0x21c /mnt/c/os/build/stage2/c/memdetect.obj
- .debug_info    0x000000000000125c      0x54e /mnt/c/os/build/stage2/c/stdio.obj
- .debug_info    0x00000000000017aa      0x29b /mnt/c/os/build/stage2/c/../../libs/ctype.obj
- .debug_info    0x0000000000001a45      0x73c /mnt/c/os/build/stage2/c/../../libs/math.obj
- .debug_info    0x0000000000002181      0x304 /mnt/c/os/build/stage2/c/../../libs/memory.obj
- .debug_info    0x0000000000002485      0x5f3 /mnt/c/os/build/stage2/c/../../libs/string.obj
- .debug_info    0x0000000000002a78      0x32c /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
- .debug_info    0x0000000000002da4      0x343 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+ .debug_info    0x0000000000000c97      0x649 /mnt/c/os/build/stage2/c/main.obj
+ .debug_info    0x00000000000012e0      0x21c /mnt/c/os/build/stage2/c/memdetect.obj
+ .debug_info    0x00000000000014fc      0x54e /mnt/c/os/build/stage2/c/stdio.obj
+ .debug_info    0x0000000000001a4a      0x29b /mnt/c/os/build/stage2/c/../../libs/ctype.obj
+ .debug_info    0x0000000000001ce5      0x73c /mnt/c/os/build/stage2/c/../../libs/math.obj
+ .debug_info    0x0000000000002421      0x304 /mnt/c/os/build/stage2/c/../../libs/memory.obj
+ .debug_info    0x0000000000002725      0x5f3 /mnt/c/os/build/stage2/c/../../libs/string.obj
+ .debug_info    0x0000000000002d18      0x32c /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_info    0x0000000000003044      0x343 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
 
-.debug_abbrev   0x0000000000000000      0xf62
+.debug_abbrev   0x0000000000000000      0xfd1
  .debug_abbrev  0x0000000000000000      0x161 /mnt/c/os/build/stage2/c/disk.obj
  .debug_abbrev  0x0000000000000161      0x265 /mnt/c/os/build/stage2/c/fat.obj
- .debug_abbrev  0x00000000000003c6      0x14d /mnt/c/os/build/stage2/c/main.obj
- .debug_abbrev  0x0000000000000513      0x118 /mnt/c/os/build/stage2/c/memdetect.obj
- .debug_abbrev  0x000000000000062b      0x1f6 /mnt/c/os/build/stage2/c/stdio.obj
- .debug_abbrev  0x0000000000000821       0x95 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
- .debug_abbrev  0x00000000000008b6      0x1be /mnt/c/os/build/stage2/c/../../libs/math.obj
- .debug_abbrev  0x0000000000000a74       0xeb /mnt/c/os/build/stage2/c/../../libs/memory.obj
- .debug_abbrev  0x0000000000000b5f      0x137 /mnt/c/os/build/stage2/c/../../libs/string.obj
- .debug_abbrev  0x0000000000000c96      0x15b /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
- .debug_abbrev  0x0000000000000df1      0x171 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+ .debug_abbrev  0x00000000000003c6      0x1bc /mnt/c/os/build/stage2/c/main.obj
+ .debug_abbrev  0x0000000000000582      0x118 /mnt/c/os/build/stage2/c/memdetect.obj
+ .debug_abbrev  0x000000000000069a      0x1f6 /mnt/c/os/build/stage2/c/stdio.obj
+ .debug_abbrev  0x0000000000000890       0x95 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
+ .debug_abbrev  0x0000000000000925      0x1be /mnt/c/os/build/stage2/c/../../libs/math.obj
+ .debug_abbrev  0x0000000000000ae3       0xeb /mnt/c/os/build/stage2/c/../../libs/memory.obj
+ .debug_abbrev  0x0000000000000bce      0x137 /mnt/c/os/build/stage2/c/../../libs/string.obj
+ .debug_abbrev  0x0000000000000d05      0x15b /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_abbrev  0x0000000000000e60      0x171 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
 
 .debug_aranges  0x0000000000000000      0x160
  .debug_aranges
@@ -265,56 +267,56 @@ OUTPUT(/mnt/c/os/build/stage2.bin binary)
  .debug_aranges
                 0x0000000000000140       0x20 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
 
-.debug_line     0x0000000000000000     0x1b37
+.debug_line     0x0000000000000000     0x1c3b
  .debug_line    0x0000000000000000       0xfb /mnt/c/os/build/stage2/c/disk.obj
  .debug_line    0x00000000000000fb      0x4be /mnt/c/os/build/stage2/c/fat.obj
- .debug_line    0x00000000000005b9       0xd1 /mnt/c/os/build/stage2/c/main.obj
- .debug_line    0x000000000000068a       0xbe /mnt/c/os/build/stage2/c/memdetect.obj
- .debug_line    0x0000000000000748      0x3de /mnt/c/os/build/stage2/c/stdio.obj
- .debug_line    0x0000000000000b26      0x27b /mnt/c/os/build/stage2/c/../../libs/ctype.obj
- .debug_line    0x0000000000000da1      0x552 /mnt/c/os/build/stage2/c/../../libs/math.obj
- .debug_line    0x00000000000012f3      0x1b7 /mnt/c/os/build/stage2/c/../../libs/memory.obj
- .debug_line    0x00000000000014aa      0x33f /mnt/c/os/build/stage2/c/../../libs/string.obj
- .debug_line    0x00000000000017e9      0x179 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
- .debug_line    0x0000000000001962      0x1d5 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+ .debug_line    0x00000000000005b9      0x1d5 /mnt/c/os/build/stage2/c/main.obj
+ .debug_line    0x000000000000078e       0xbe /mnt/c/os/build/stage2/c/memdetect.obj
+ .debug_line    0x000000000000084c      0x3de /mnt/c/os/build/stage2/c/stdio.obj
+ .debug_line    0x0000000000000c2a      0x27b /mnt/c/os/build/stage2/c/../../libs/ctype.obj
+ .debug_line    0x0000000000000ea5      0x552 /mnt/c/os/build/stage2/c/../../libs/math.obj
+ .debug_line    0x00000000000013f7      0x1b7 /mnt/c/os/build/stage2/c/../../libs/memory.obj
+ .debug_line    0x00000000000015ae      0x33f /mnt/c/os/build/stage2/c/../../libs/string.obj
+ .debug_line    0x00000000000018ed      0x179 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_line    0x0000000000001a66      0x1d5 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
 
-.debug_str      0x0000000000000000     0x1868
+.debug_str      0x0000000000000000     0x19c0
  .debug_str     0x0000000000000000      0x1cf /mnt/c/os/build/stage2/c/disk.obj
  .debug_str     0x00000000000001cf      0x607 /mnt/c/os/build/stage2/c/fat.obj
- .debug_str     0x00000000000007d6      0x265 /mnt/c/os/build/stage2/c/main.obj
- .debug_str     0x0000000000000a3b      0x1b5 /mnt/c/os/build/stage2/c/memdetect.obj
- .debug_str     0x0000000000000bf0      0x260 /mnt/c/os/build/stage2/c/stdio.obj
- .debug_str     0x0000000000000e50      0x14b /mnt/c/os/build/stage2/c/../../libs/ctype.obj
- .debug_str     0x0000000000000f9b      0x1cd /mnt/c/os/build/stage2/c/../../libs/math.obj
- .debug_str     0x0000000000001168      0x147 /mnt/c/os/build/stage2/c/../../libs/memory.obj
- .debug_str     0x00000000000012af      0x1f3 /mnt/c/os/build/stage2/c/../../libs/string.obj
- .debug_str     0x00000000000014a2      0x1e3 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
- .debug_str     0x0000000000001685      0x1e3 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+ .debug_str     0x00000000000007d6      0x3bd /mnt/c/os/build/stage2/c/main.obj
+ .debug_str     0x0000000000000b93      0x1b5 /mnt/c/os/build/stage2/c/memdetect.obj
+ .debug_str     0x0000000000000d48      0x260 /mnt/c/os/build/stage2/c/stdio.obj
+ .debug_str     0x0000000000000fa8      0x14b /mnt/c/os/build/stage2/c/../../libs/ctype.obj
+ .debug_str     0x00000000000010f3      0x1cd /mnt/c/os/build/stage2/c/../../libs/math.obj
+ .debug_str     0x00000000000012c0      0x147 /mnt/c/os/build/stage2/c/../../libs/memory.obj
+ .debug_str     0x0000000000001407      0x1f3 /mnt/c/os/build/stage2/c/../../libs/string.obj
+ .debug_str     0x00000000000015fa      0x1e3 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+ .debug_str     0x00000000000017dd      0x1e3 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
 
 .debug_line_str
-                0x0000000000000000      0x88a
+                0x0000000000000000      0x89e
  .debug_line_str
                 0x0000000000000000       0xb4 /mnt/c/os/build/stage2/c/disk.obj
  .debug_line_str
                 0x00000000000000b4       0xdd /mnt/c/os/build/stage2/c/fat.obj
  .debug_line_str
-                0x0000000000000191       0xf2 /mnt/c/os/build/stage2/c/main.obj
+                0x0000000000000191      0x106 /mnt/c/os/build/stage2/c/main.obj
  .debug_line_str
-                0x0000000000000283       0xda /mnt/c/os/build/stage2/c/memdetect.obj
+                0x0000000000000297       0xda /mnt/c/os/build/stage2/c/memdetect.obj
  .debug_line_str
-                0x000000000000035d       0xb1 /mnt/c/os/build/stage2/c/stdio.obj
+                0x0000000000000371       0xb1 /mnt/c/os/build/stage2/c/stdio.obj
  .debug_line_str
-                0x000000000000040e       0x79 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
+                0x0000000000000422       0x79 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
  .debug_line_str
-                0x0000000000000487       0xc0 /mnt/c/os/build/stage2/c/../../libs/math.obj
+                0x000000000000049b       0xc0 /mnt/c/os/build/stage2/c/../../libs/math.obj
  .debug_line_str
-                0x0000000000000547       0xcf /mnt/c/os/build/stage2/c/../../libs/memory.obj
+                0x000000000000055b       0xcf /mnt/c/os/build/stage2/c/../../libs/memory.obj
  .debug_line_str
-                0x0000000000000616       0xd6 /mnt/c/os/build/stage2/c/../../libs/string.obj
+                0x000000000000062a       0xd6 /mnt/c/os/build/stage2/c/../../libs/string.obj
  .debug_line_str
-                0x00000000000006ec       0xcf /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
+                0x0000000000000700       0xcf /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
  .debug_line_str
-                0x00000000000007bb       0xcf /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
+                0x00000000000007cf       0xcf /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
 
 .comment        0x0000000000000000       0xd1
  .comment       0x0000000000000000       0x13 /mnt/c/os/build/stage2/c/disk.obj
@@ -329,16 +331,16 @@ OUTPUT(/mnt/c/os/build/stage2.bin binary)
  .comment       0x00000000000000ab       0x13 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_udivdi3.o)
  .comment       0x00000000000000be       0x13 /mnt/c/os/toolchain/i686-elf/bin/../lib/gcc/i686-elf/11.1.0/libgcc.a(_umoddi3.o)
 
-.debug_frame    0x0000000000000000      0xc40
+.debug_frame    0x0000000000000000      0xc74
  .debug_frame   0x0000000000000000       0x80 /mnt/c/os/build/stage2/c/disk.obj
  .debug_frame   0x0000000000000080      0x184 /mnt/c/os/build/stage2/c/fat.obj
- .debug_frame   0x0000000000000204       0x2c /mnt/c/os/build/stage2/c/main.obj
- .debug_frame   0x0000000000000230       0x3c /mnt/c/os/build/stage2/c/memdetect.obj
- .debug_frame   0x000000000000026c      0x1c0 /mnt/c/os/build/stage2/c/stdio.obj
- .debug_frame   0x000000000000042c      0x1d4 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
- .debug_frame   0x0000000000000600      0x398 /mnt/c/os/build/stage2/c/../../libs/math.obj
- .debug_frame   0x0000000000000998       0xb4 /mnt/c/os/build/stage2/c/../../libs/memory.obj
- .debug_frame   0x0000000000000a4c      0x1f4 /mnt/c/os/build/stage2/c/../../libs/string.obj
+ .debug_frame   0x0000000000000204       0x60 /mnt/c/os/build/stage2/c/main.obj
+ .debug_frame   0x0000000000000264       0x3c /mnt/c/os/build/stage2/c/memdetect.obj
+ .debug_frame   0x00000000000002a0      0x1c0 /mnt/c/os/build/stage2/c/stdio.obj
+ .debug_frame   0x0000000000000460      0x1d4 /mnt/c/os/build/stage2/c/../../libs/ctype.obj
+ .debug_frame   0x0000000000000634      0x398 /mnt/c/os/build/stage2/c/../../libs/math.obj
+ .debug_frame   0x00000000000009cc       0xb4 /mnt/c/os/build/stage2/c/../../libs/memory.obj
+ .debug_frame   0x0000000000000a80      0x1f4 /mnt/c/os/build/stage2/c/../../libs/string.obj
 
 .debug_loclists
                 0x0000000000000000      0x9a0
