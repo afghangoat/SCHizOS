@@ -1,5 +1,7 @@
 # SCHizOS
 
+![Spoiler image](https://afghangoat.hu/img/img52.png)
+
 My own operating system which I made from scratch using Assembly and C as the main technology.
 
 ## Main features
