@@ -1,7 +1,8 @@
 #pragma once
 #include <stdbool.h>
+#include "kvfs.h"
 
-#define MAX_COMMAND_LENGTH 10
+#define MAX_COMMAND_LENGTH 64
 
 bool check_for_beep_cmd();
 
