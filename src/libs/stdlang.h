@@ -53,11 +53,13 @@
 #define HELP2_MAN4 "helputils - \n"
 #define HELP2_MAN5 "logout/shutdown/lo - shuts the OS down.\n"
 #define HELP2_MAN6 "cls/clear - clears the screen.\n"
-#define HELP2_MAN7 "changelang <lang_id> - Changes keyboard language (EN is 0, DE is 1, HU is 2, FR is 3)\n"
+#define HELP2_MAN7 "lang <lang_id> - Changes keyboard language (EN is 0, DE is 1, HU is 2, FR is 3)\n"
 #define HELP2_MAN8 "motd - displays the message of the day.\n"
 #define HELP2_MAN9 "freemode/cmdmode - enables moving on the screen in all directions with the cursor.\n"
 #define HELP2_MAN10 "random/rand/rnd - Gives you a random generated number.\n"
 #define HELP2_MAN11 "hunglish - Generates you a new hungarian word.\n"
+#define HELP2_MAN12 "dir/ls - Lists the files and directories in the current directory.\n"
+#define HELP2_MAN13 "cat <file> - Prints a file content from a loaded file.\n"
 
 
 #define HELP3_MAN1 "---=Misc. Help=---\n"
