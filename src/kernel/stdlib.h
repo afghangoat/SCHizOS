@@ -1,3 +1,4 @@
+#pragma once
 #include <arch/i686/rnd.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -56,6 +57,9 @@ bool is_computer_on();
 //Allocate a random, (hopefully available) pointer.
 //Memory leaks can't occur, if you don't define memory leaks. ):K
 int* u_malloc(int size);
+
+void* k_malloc(uint32_t size);
+void k_free(void* ptr);
 
 void fill_color_rect(int x,int y,int width,int height,uint8_t color);
 
