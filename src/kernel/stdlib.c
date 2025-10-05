@@ -48,6 +48,76 @@ int* u_malloc(int size){
     return ptr;
 }
 
+//static uintptr_t next_free = MEMORY_MIN; //REDUNDANT
+
+typedef struct MemBlock {
+    uint32_t size;
+    struct MemBlock* next;
+} MemBlock;
+
+static MemBlock* free_list = (MemBlock*)MEMORY_MIN;
+
+static void k_malloc_init() {
+    free_list->size = MEMORY_MAX - MEMORY_MIN - sizeof(MemBlock);
+    free_list->next = NULL;
+}
+
+void* k_malloc(uint32_t size) {
+    
+    size = (size + 3) & ~3; //Align to 4B
+
+    MemBlock* prev = NULL;
+    MemBlock* curr = free_list;
+
+    while (curr) { //traverse list
+        if (curr->size >= size) {
+            if (curr->size > size + sizeof(MemBlock)) {
+				
+                MemBlock* new_block = (MemBlock*)((uint8_t*)curr + sizeof(MemBlock) + size);
+                new_block->size = curr->size - size - sizeof(MemBlock);
+                new_block->next = curr->next;
+
+                curr->size = size;
+                curr->next = NULL;
+
+                if (prev){
+                    prev->next = new_block;
+                }else{
+                    free_list = new_block;
+				}
+				
+            } else {
+				
+                //near-exact fit
+                if (prev){
+                    prev->next = curr->next;
+                }else{
+                    free_list = curr->next;
+				}
+                curr->next = NULL;
+            }
+
+            return (void*)((uint8_t*)curr + sizeof(MemBlock));
+        }
+
+        prev = curr;
+        curr = curr->next;
+    }
+
+	//TODO outofmemory error
+    return NULL; 
+}
+
+void k_free(void* ptr) {
+    if (!ptr){ //NULL or nullptr
+		return;
+	}
+
+    MemBlock* block = (MemBlock*)((uint8_t*)ptr - sizeof(MemBlock));
+    block->next = free_list;
+    free_list = block;
+}
+
 #define CANVAS_WIDTH 80
 #define CANVAS_HEIGHT 25
 void fill_color_rect(int x,int y,int width,int height,uint8_t color){
