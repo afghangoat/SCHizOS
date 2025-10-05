@@ -10,6 +10,14 @@
 
 #define SCREEN_WIDTH 80
 
+int global_count_id=0;
+bool countto(){
+	if(global_count_id <= 0){
+        return false; // stop the process
+    }
+    global_count_id--;
+}
+
 int cmd_needs_beep=0;
 
 bool check_for_beep_cmd(){
@@ -31,14 +39,16 @@ char cur_command[SCREEN_WIDTH]=" ";
 
 #define MAX_COMMAND_COUNT 64
 
+#define MAX_PARAM_LEN 30
+
 int command_count=0;
 Command global_commands[MAX_COMMAND_COUNT];
 
 int global_param_count=0;
-char global_param_storage[10][10];
+char global_param_storage[10][MAX_PARAM_LEN];
 void clear_global_param_storage(){
 	for(int i=0;i<10;i++){
-		for(int j=0;j<10;j++){
+		for(int j=0;j<MAX_PARAM_LEN;j++){
 			global_param_storage[i][j]='\0';
 		}
 	}
@@ -60,6 +70,10 @@ void clear_global_param_storage(){
 #define COMMAND_ID_MCMD 9
 #define COMMAND_ID_RAND 10
 #define COMMAND_ID_HUNGLISH 11
+#define COMMAND_ID_DIR 12
+#define COMMAND_ID_CAT 13
+#define COMMAND_ID_CLANG2 14
+#define COMMAND_ID_COUNTTO 15
 
 //TODO set keyboard value task which get executed by timer
 int exec_command(int cmd_id){
@@ -89,6 +103,8 @@ int exec_command(int cmd_id){
 			printf(HELP2_MAN9);
 			printf(HELP2_MAN10);
 			printf(HELP2_MAN11);
+			printf(HELP2_MAN12);
+			printf(HELP2_MAN13);
 			set_global_color(0x0);
 			break;
 		
@@ -115,31 +131,8 @@ int exec_command(int cmd_id){
 			break;
 		
 		case COMMAND_ID_CLANG:
-			int lang_id=(int)(global_param_storage[0][0]-48);
-			if(lang_id>3){
-				lang_id=0;
-			}
-			
-			create_process(1,lang_id);
-			set_global_color(0x47);
-			printf(MSG_SETLANG);
-			//EN,DE,HU,XU
-			
-			switch(lang_id){
-				case 0:
-					printf(LANG_EN);
-					break;
-				case 1:
-					printf(LANG_DE);
-					break;
-				case 2:
-					printf(LANG_HU);
-					break;
-				case 3:
-					printf(LANG_XU);
-					break;
-			}
-			set_global_color(0x0);
+			printf("\nQQQQ");
+			/**/
 			break;
 			
 		case COMMAND_ID_MOTD:
@@ -167,6 +160,80 @@ int exec_command(int cmd_id){
 			printf("\n");
 			gen_hunglish();
 			break;
+		case COMMAND_ID_DIR:
+			printf("\n");
+			printRoot();
+			break;
+		case COMMAND_ID_CAT:
+			printf("\n");
+			char* filename=global_param_storage[0];
+			char correct[FAT_NAME_LENGTH];
+			int k=0;
+			for(int i=0;i<20;i++){
+				if(filename[i]=='\0'){
+					break;
+				}
+				if(filename[i]!='.'){
+					correct[k]=filename[i];
+					k++;
+				}
+			}
+			
+			//printf("%s",filename);
+			
+			char* temp = getFileContents(correct);
+			if(temp==NULL){
+				printf("Error reading file!: %s",filename);
+			}
+			uint32_t i=0;
+			while(temp[i]!='\0'){
+				char c =temp[i];
+				if (c == '\0'){
+					break;
+				}
+				putc(c);
+				i++;
+			}
+			break;
+		
+		case COMMAND_ID_CLANG2:
+			printf("\n");
+			int lang_id=(int)(global_param_storage[0][0]-48);
+			if(lang_id>3){
+				lang_id=0;
+			}
+			
+			//printf("XX%dXX",global_param_storage[0][0]);
+			
+			create_process(1,lang_id,persistent_prc,true);
+			set_global_color(0x47);
+			printf(MSG_SETLANG);
+			//EN,DE,HU,XU
+			
+			switch(lang_id){
+				case 0:
+					printf(LANG_EN);
+					break;
+				case 1:
+					printf(LANG_DE);
+					break;
+				case 2:
+					printf(LANG_HU);
+					break;
+				case 3:
+					printf(LANG_XU);
+					break;
+			}
+			set_global_color(0x0);
+			break;
+		case COMMAND_ID_COUNTTO:
+			printf("\n");
+			
+			int count_id=(int)(global_param_storage[0][0]-48)+(int)(global_param_storage[0][0]-48)*10+(int)(global_param_storage[0][0]-48)*100;
+			global_count_id=count_id;
+			int pid=5;
+			create_process(1,pid,countto,true);
+			break;
 		
 		default:
 			//
@@ -182,44 +249,55 @@ bool parse_command(int cmd_idx,int len){
 	
 	bool ok=true;
 	int i;
-	for(i=0;i<len;i++){
-		if(cur_command[i]==' '){
+	for(i = 0; i < len; i++){
+		if(cur_command[i] == ' '){
 			i++;
-			ok=false;
 			break;
 		}
-		if(global_commands[cmd_idx].keyword[i]!=cur_command[i]||cur_command[i]=='\0'||global_commands[cmd_idx].keyword[i]=='\0'){
+		if(global_commands[cmd_idx].keyword[i] != cur_command[i] || 
+		   cur_command[i] == '\0' || 
+		   global_commands[cmd_idx].keyword[i] == '\0'){
 			return false;
 		}
 	}
 	
-	if(argc!=0){
-		
+	if(argc != 0){
 		clear_global_param_storage();
-		//GET data;
-		int filled_params=0;
-		int gparam_helper=0; //pointer
-		while(cur_command[i]!='\0'){
-			if(cur_command[i]==' '){
-				gparam_helper=-1;
-				filled_params++;
-			} else {
-				global_param_storage[filled_params][gparam_helper]=cur_command[i];
+		int filled_params = 0;
+		int gparam_helper = 0;
+
+		while(cur_command[i] != '\0' && filled_params < 10){
+			if(cur_command[i] == ' '){
+				if(gparam_helper > 0){ // only advance if something was added
+					global_param_storage[filled_params][gparam_helper] = '\0';
+					filled_params++;
+					gparam_helper = 0;
+				}
+				// skip consecutive spaces
+				i++;
+				continue;
 			}
-			
-			gparam_helper++;
+
+			if(gparam_helper < MAX_PARAM_LEN - 1){
+				global_param_storage[filled_params][gparam_helper] = cur_command[i];
+				gparam_helper++;
+			}
 			i++;
 		}
-		
-		if(filled_params==argc){
-			ok=true;
-			global_param_count=argc;
-		} else {
-			ok=false;
-			global_param_count=-1;
-			//TODO printf
+
+		// terminate last parameter
+		if(gparam_helper > 0){
+			global_param_storage[filled_params][gparam_helper] = '\0';
+			filled_params++;
 		}
-		
+
+		if(filled_params == argc){
+			ok = true;
+			global_param_count = argc;
+		} else {
+			ok = false;
+			global_param_count = -1;
+		}
 	}
 	return ok;
 }
@@ -286,7 +364,7 @@ void register_commands(){
 	register_command("clear",0,COMMAND_ID_CLS);
 	
 	//changelang
-	register_command("changelang",0,COMMAND_ID_CLANG);
+	//register_command("changelang",1,COMMAND_ID_CLANG2);
 	
 	//motd
 	register_command("motd",0,COMMAND_ID_MOTD);
@@ -305,4 +383,14 @@ void register_commands(){
 	//hunglish
 	register_command("hunglish",0,COMMAND_ID_HUNGLISH);
 	
+	//Dir
+	register_command("dir",0,COMMAND_ID_DIR);
+	register_command("ls",0,COMMAND_ID_DIR);
+	
+	//Cat
+	register_command("cat",1,COMMAND_ID_CAT);
+	
+	register_command("lang",1,COMMAND_ID_CLANG2);
+	
+	register_command("countto",1,COMMAND_ID_COUNTTO);
 }
