@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <fs/vfs.h>
 
 typedef struct{
 	uint64_t Begin;
@@ -17,4 +18,11 @@ typedef struct{
 typedef struct {
 	MemoryInfo Memory;
 	uint8_t BootDevice;
+	
+	void* initrd_ptr;
+    uint32_t initrd_size;
+	
+	MemoryFileEntry FileEntries[MAX_FILE_ENTRIES_IN_LIVE_BOOT];
+	uint32_t file_count;
+	
 } BootParams;
