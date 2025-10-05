@@ -51,6 +51,7 @@ msg_hello: DB 'Hello world!',ENDL,0
 #include <stdlib.h>
 #include <arch/i686/irq.h>
 #include <boot/boot_params.h>
+#include "kvfs.h"
 #include <arch/i686/disk.h>
 #include <arch/i686/fat.h>
 #include <arch/i686/io.h>
@@ -91,6 +92,8 @@ void timer_beep(int ticks,uint32_t freq){
 #define PROCESS_ID_REBIND_LANG 1
 void timer(Registers* regs){
 	tick++;
+	
+	run_scheduler_loop();
 	
 	int prc_check=check_process(PROCESS_ID_REBIND_LANG);
 	
@@ -136,49 +139,19 @@ void __attribute__((section(".entry"))) start(BootParams* boot_params){
 	display_motd();
     printf("Type 'help' for help.\n");
 	
-	// browse files in root
-    /*FAT_File* file_data = FAT_Open(&disk, "/");
-    FAT_DirectoryEntry entry;
-    int i = 0;
-    while (FAT_ReadEntry(&disk, file_data, &entry) && i++ < 5){
-        printf(TAB_PAD);
-        for (int i = 0; i < 11; i++)
-            putc(entry.Name[i]);
-        printf("\r\n");
-    }
-    FAT_Close(file_data);*/
-	//puts("Hello world from C!\r\n");
-	//printf("AAAA %s aaa %d","bb",21);
+	if (boot_params->initrd_ptr != NULL ) {
+		printf("Initrd loaded at %p, size %u bytes\n",boot_params->initrd_ptr,boot_params->initrd_size);
+		initrd=(char*)boot_params->initrd_ptr;
+		initrd_size=boot_params->initrd_size;
 
-	/*
-    // read test.txt
-    char buffer[100];
-    uint32_t read;
-    file_data = FAT_Open(&disk, "mydir/test.txt");
-    while ((read = FAT_Read(&disk, file_data, sizeof(buffer), buffer))){
-        for (uint32_t i = 0; i < read; i++){
-            if (buffer[i] == '\n'){
-                putc('\r');
-			}
-            putc(buffer[i]);
-        }
-    }
-    FAT_Close(file_data);*/
-	//putc('x');
+	}
 	
-	/*printf("Boot device: %x",boot_params->BootDevice);
-	for (int i = 0; i < boot_params->Memory.RegionCount; i++) 
-    {
-        printf("MEM: start=0x%llx length=0x%llx type=%x", 
-            boot_params->Memory.Regions[i].Begin,
-            boot_params->Memory.Regions[i].Length,
-            boot_params->Memory.Regions[i].Type);
-    }*/
-	//__asm("int $0x2");
-	//printf("Hello world from kernel!!!\n");
-	//int a=seeded_rand();
-	//printf("x%dx",a);
-	//crash_me();
+	if(readFromBoot(boot_params->FileEntries,boot_params->file_count)==true){
+		printf("Files are loaded successfully from boot!\n");
+	} else {
+		printf("Failed to read in boot files!\n");
+	}
+	
 	init_keyboard();
 	i686_IRQ_reg_handlers(0,timer);
 	
