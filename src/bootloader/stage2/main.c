@@ -84,11 +84,17 @@ void __attribute__((cdecl)) start(uint16_t bootDrive){
     }
     FAT_Close(file_data);
 	
+	//Copy an example file to ramdisk
 	boot_params.FileEntries[boot_params.file_count]=copyToFileK(buffer);
 	const char* filenamea="userinfotxt";
+	const char* dirlocation="userland";
 	for(int i=0;i<FAT_NAME_LENGTH;i++){
 		boot_params.FileEntries[boot_params.file_count].FileName[i]=filenamea[i];
 	}
+	for(int i=0;i<8;i++){
+		boot_params.FileEntries[boot_params.file_count].InDir[i]=dirlocation[i];
+	}
+	boot_params.FileEntries[boot_params.file_count].InDir[8]='\0';
 	
 	boot_params.file_count++;
 	
