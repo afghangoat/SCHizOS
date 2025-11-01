@@ -6,7 +6,7 @@ My own operating system which I made from scratch using Assembly and C as the ma
 
 ## Main features
 
-- Tasks
+- Tasks (For now, the task creator is mislabeled as process creator, when process creation is implemented this will be fixed too)
 - Programs
 - Custom memory management
 - Custom file systems (Fat12 and VFS)
