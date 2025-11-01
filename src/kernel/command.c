@@ -74,6 +74,9 @@ void clear_global_param_storage(){
 #define COMMAND_ID_CAT 13
 #define COMMAND_ID_CLANG2 14
 #define COMMAND_ID_COUNTTO 15
+#define COMMAND_ID_CD 16
+#define COMMAND_ID_PWD 17
+#define COMMAND_ID_ECHO 18
 
 //TODO set keyboard value task which get executed by timer
 int exec_command(int cmd_id){
@@ -105,6 +108,9 @@ int exec_command(int cmd_id){
 			printf(HELP2_MAN11);
 			printf(HELP2_MAN12);
 			printf(HELP2_MAN13);
+			printf(HELP2_MAN14);
+			printf(HELP2_MAN15);
+			printf(HELP2_MAN16);
 			set_global_color(0x0);
 			break;
 		
@@ -162,7 +168,7 @@ int exec_command(int cmd_id){
 			break;
 		case COMMAND_ID_DIR:
 			printf("\n");
-			printRoot();
+			printDir();
 			break;
 		case COMMAND_ID_CAT:
 			printf("\n");
@@ -194,6 +200,36 @@ int exec_command(int cmd_id){
 				putc(c);
 				i++;
 			}
+			break;
+		case COMMAND_ID_CD:
+			printf("\n");
+			char* filename_cd=global_param_storage[0];
+			char correct_cd[FAT_NAME_LENGTH];
+			for(int i=0;i<FAT_NAME_LENGTH;i++){
+				correct_cd[i]=filename_cd[i];
+				if(filename_cd[i]=='\0'){
+					break;
+				}
+			}
+			
+			//printf("%s",filename);
+			
+			if(correct_cd[0]=='.' && correct_cd[1] == '.'){
+				setPathToRoot();
+			} else{
+				setCurrentPath(correct_cd);
+			}
+			break;
+			
+		case COMMAND_ID_ECHO:
+			printf("\n");
+			char* echo_msg=global_param_storage[0];
+			printf("%s \n", echo_msg);
+			break;
+		
+		case COMMAND_ID_PWD:
+			printf("\n");
+			pwd();
 			break;
 		
 		case COMMAND_ID_CLANG2:
@@ -393,4 +429,10 @@ void register_commands(){
 	register_command("lang",1,COMMAND_ID_CLANG2);
 	
 	register_command("countto",1,COMMAND_ID_COUNTTO);
+	
+	register_command("cd",1,COMMAND_ID_CD);
+	
+	register_command("pwd",0,COMMAND_ID_PWD);
+	
+	register_command("echo",1,COMMAND_ID_ECHO);
 }
