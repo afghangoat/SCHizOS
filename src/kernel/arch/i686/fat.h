@@ -2,6 +2,7 @@
 #pragma once
 #include <stdint.h>
 #include "disk.h"
+#include "ata.h"
 #include <stdbool.h>
 
 #define FAT_NAME_LENGTH 11
