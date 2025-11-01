@@ -26,6 +26,7 @@
 #define ERR_INVALID "%s is not found or invalid!\r\n"
 #define ERR_INIT "Init error\r\n"
 #define ERR_CMD_NOT_FOUND "No valid command found\r\n"
+#define ERR_CMD_FILE_NOT_FOUND_IN_DIR "Specified file not found in directory!\r\n"
 
 #define ERR_DRIVE_PARAMS "Getting drive parameters failed!\r\n"
 #define ERR_READ_SECTORS "Error occured while trying to read sectors.\r\n"
@@ -60,6 +61,9 @@
 #define HELP2_MAN11 "hunglish - Generates you a new hungarian word.\n"
 #define HELP2_MAN12 "dir/ls - Lists the files and directories in the current directory.\n"
 #define HELP2_MAN13 "cat <file> - Prints a file content from a loaded file.\n"
+#define HELP2_MAN14 "cd <dir> - Enters in a directory.\n"
+#define HELP2_MAN15 "pwd - Prints the working directory.\n"
+#define HELP2_MAN16 "echo <message> - Prints a message.\n"
 
 
 #define HELP3_MAN1 "---=Misc. Help=---\n"
